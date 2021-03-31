@@ -1,0 +1,37 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-employee',
+  templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.css']
+})
+export class EmployeeComponent implements OnInit {
+
+  id!: number;
+  firstName!: string;
+  lastName!: string;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  fullName(): string {
+    return this.firstName + " " + this.lastName;
+}
+
+  email(): string {
+    let regexp: RegExp=/[A-Za-z]/;
+    let lastNameChar = "";
+
+    for (let i = 0; i < this.lastName.length; i++){
+      let char = this.lastName.slice(i, i+1);
+      if (char.match(regexp)){
+        lastNameChar += char
+      }
+    }
+
+    return this.firstName.slice(0, 1).toLowerCase() + lastNameChar.slice(0, 5).toLowerCase() + "@web422.com";
+  }
+
+}
