@@ -18,21 +18,28 @@ export class EmployeeComponent implements OnInit {
   }
 
   fullName(): string {
-    return this.firstName + " " + this.lastName;
+    if (this.firstName && this.lastName){
+      return this.firstName + " " + this.lastName;
+    } else {
+      return "";
+    }
 }
 
   email(): string {
-    let regexp: RegExp=/[A-Za-z]/;
-    let lastNameChar = "";
-
-    for (let i = 0; i < this.lastName.length; i++){
-      let char = this.lastName.slice(i, i+1);
-      if (char.match(regexp)){
-        lastNameChar += char
+    if (this.firstName && this.lastName){
+      let regexp: RegExp=/[A-Za-z]/;
+      let lastNameChar = "";
+  
+      for (let i = 0; i < this.lastName.length; i++){
+        let char = this.lastName.slice(i, i+1);
+        if (char.match(regexp)){
+          lastNameChar += char
+        }
       }
+  
+      return this.firstName.slice(0, 1).toLowerCase() + lastNameChar.slice(0, 5).toLowerCase() + "@web422.com";
+    } else {
+      return "";
     }
-
-    return this.firstName.slice(0, 1).toLowerCase() + lastNameChar.slice(0, 5).toLowerCase() + "@web422.com";
-  }
-
+  } 
 }
