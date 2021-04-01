@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from "@angular/forms";
+import { EmployeeComponent } from '../employee/employee.component'
 
 @Component({
   selector: 'app-employee-form',
@@ -7,13 +8,17 @@ import { NgForm } from "@angular/forms";
   styleUrls: ['./employee-form.component.css']
 })
 export class EmployeeFormComponent implements OnInit {
+  formId!: number;
+  formFirstName!: string;
+  formLastName!: string;
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
   }
 
   onSubmit(form: NgForm): void {
-    console.log("submit", form)
+    console.log("submit", form.value)
   }
 }

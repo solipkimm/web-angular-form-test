@@ -1,0 +1,36 @@
+#employee-form{
+    margin: 1em;
+    padding: 2em;
+    background-color: whitesmoke;
+    border: 1px solid darkgray;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 0.4fr 1fr;
+    grid-gap: 15px
+}
+
+label{
+    font-size: 1em;
+}
+
+input {
+    width: 100%;
+    font-size: 1em;
+}
+
+input[type="submit"]{
+    width: 150px;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus{
+    background-color: rgb(3, 125, 206);
+    color: whitesmoke;
+}
+
+.button {
+    grid-column: 2/3;
+    text-align: right;
+}

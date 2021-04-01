@@ -1,1 +1,52 @@
-<p>employee-form works!</p>
+<form 
+    id="employee-form"
+    #employeeForm="ngForm"
+    (ngSubmit)="onSubmit(employeeForm)">
+
+    <label for="employee-id">ID</label>
+    <input
+        id="employee-id"
+        name="id"
+        type="number"
+        placeholder="12345"
+        pattern="\s*[0-9]\s*"
+        required
+        autofocus
+        [(ngModel)]="formId"
+        #employeeId="ngModel"
+    > 
+
+    <label for="employee-firstName">First Name</label>
+    <input
+        id="employee-firstName"
+        name="firstName"
+        placeholder="John"
+        type="text"
+        required
+        [(ngModel)]="formFirstName"
+        #employeeFirstName="ngModel"
+    >
+
+    <label for="employee-lastName">Last Name</label>
+    <input
+        id="employee-lastName"
+        name="lastName"
+        placeholder="Doe"
+        type="text"
+        required
+        [(ngModel)]="formLastName"
+        #employeelastName="ngModel"
+    >
+    <div class="button">
+        <input
+            id="employee-button"
+            type="submit"
+            name="submit"
+        >
+    </div>
+</form>
+<app-employee 
+    [id]="formId"
+    [lastName]="formLastName"
+    [firstName]="formFirstName">
+</app-employee>
